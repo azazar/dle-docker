@@ -11,7 +11,7 @@ This Docker image allows you to quickly set up a trial version of DataLife Engin
 To use this Docker image, run the following command:
 
 ```bash
-docker run -p 80:80 azazar/dle
+docker run -p 80:80 azazar/dle:trial
 ```
 
 Then, open your web browser and navigate to `http://localhost` to start the DataLife Engine installation process.
@@ -21,7 +21,7 @@ Then, open your web browser and navigate to `http://localhost` to start the Data
 To build this Docker image, run the following command:
 
 ```bash
-docker build . -t azazar/dle
+docker build . -t azazar/dle:trial
 ```
 
 ## License
