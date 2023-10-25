@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Push Docker Image",
+            "type": "shell",
+            "command": "docker build . -t azazar/dle:trial && docker push azazar/dle:trial",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always"
+            }
+        }
+    ]
+}
