@@ -7,7 +7,7 @@ dle_path=/var/www/html
 
 # Initialize MySQL Database unless it has been initialized already
 if [ ! -d "${db_path}" ]; then
-    while [ ! -e /var/run/mysqld/mysqld.sock]; do
+    while [ ! -e /var/run/mysqld/mysqld.sock ]; do
         echo "Waiting for mysqld to start..."
         sleep 1
     done
