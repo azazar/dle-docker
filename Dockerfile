@@ -17,6 +17,14 @@ RUN apt-get update -y \
  && apt-get clean \
  && bash -c 'chown -R www-data:www-data /var/www/html/{uploads,backup,engine/data,engine/data/emoticons,engine/cache,templates}'
 
+RUN a2enmod rewrite
+
+RUN echo "<Directory /var/www/html/>" > /etc/apache2/conf-enabled/dle.conf \
+ && echo "Options Indexes FollowSymLinks" >> /etc/apache2/conf-enabled/dle.conf \
+ && echo "AllowOverride All" >> /etc/apache2/conf-enabled/dle.conf \
+ && echo "Require all granted" >> /etc/apache2/conf-enabled/dle.conf \
+ && echo "</Directory>" >> /etc/apache2/conf-enabled/dle.conf
+
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive \
     MYSQL_DATABASE=dle_db \
