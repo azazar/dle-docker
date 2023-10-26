@@ -2,11 +2,11 @@ FROM ubuntu:22.04
 
 RUN apt-get update -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        supervisor \
-        apache2 libapache2-mod-php8.1 php8.1-xml php8.1-gd php8.1-curl php8.1-mbstring php8.1-fileinfo php8.1-mysqli php8.1-zip \
-        php8.1-cli \
-        mariadb-server \
-        wget unzip ca-certificates openssl \
+    supervisor \
+    apache2 libapache2-mod-php8.1 php8.1-xml php8.1-gd php8.1-curl php8.1-mbstring php8.1-fileinfo php8.1-mysqli php8.1-zip \
+    php8.1-cli \
+    mariadb-server \
+    wget unzip ca-certificates openssl \
  && wget 'https://dle-news.com/files/dle_trial.zip' -O /var/www/dle_trial.zip \
  && unzip /var/www/dle_trial.zip -d /var/www/dle-dist \
  && rm -rf /var/www/html /var/www/dle_trial.zip \
@@ -20,9 +20,9 @@ RUN apt-get update -y \
 RUN a2enmod rewrite
 
 RUN echo "<Directory /var/www/html/>" > /etc/apache2/conf-enabled/dle.conf \
- && echo "Options Indexes FollowSymLinks" >> /etc/apache2/conf-enabled/dle.conf \
- && echo "AllowOverride All" >> /etc/apache2/conf-enabled/dle.conf \
- && echo "Require all granted" >> /etc/apache2/conf-enabled/dle.conf \
+ && echo "    Options Indexes FollowSymLinks" >> /etc/apache2/conf-enabled/dle.conf \
+ && echo "    AllowOverride All" >> /etc/apache2/conf-enabled/dle.conf \
+ && echo "    Require all granted" >> /etc/apache2/conf-enabled/dle.conf \
  && echo "</Directory>" >> /etc/apache2/conf-enabled/dle.conf
 
 # Set environment variables
